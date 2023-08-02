@@ -5,6 +5,9 @@ on:
     types:
       - release-triggered
 
+permissions:
+  contents: write
+
 jobs:
   build-publish:
     runs-on: ubuntu-latest
