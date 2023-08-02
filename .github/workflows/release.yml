@@ -6,12 +6,13 @@ on:
       - release-triggered
 
 jobs:
-  handle-release:
+  build-publish:
     runs-on: ubuntu-latest
-
     steps:
-      - env:
-          VERSION: ${{ github.event.client_payload.version }}
-        run: echo $VERSION
-      - name: Print hello
-        run: echo "HELLO"
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{github.event.client_payload.version}}
+        name: ${{github.event.client_payload.version}} Starters
+        draft: false
+        prerelease: false
