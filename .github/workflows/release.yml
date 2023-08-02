@@ -1,0 +1,14 @@
+name: Handle Triggered Release
+
+on:
+  repository_dispatch:
+    types:
+      - release-triggered
+
+jobs:
+  handle-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print hello
+        run: echo "HELLO"
